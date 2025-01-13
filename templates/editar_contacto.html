@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Contacto</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        {{ form.hidden_tag() }}
+        
+        <!-- Campo: Nombres -->
+        <div class="mb-3">
+            <label for="nombres" class="form-label">{{ form.nombres.label }}</label>
+            {{ form.nombres(class="form-control", id="nombres", size=32) }}
+            {% for error in form.nombres.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Apellidos -->
+        <div class="mb-3">
+            <label for="apellidos" class="form-label">{{ form.apellidos.label }}</label>
+            {{ form.apellidos(class="form-control", id="apellidos", size=32) }}
+            {% for error in form.apellidos.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Tipo de Documento -->
+        <div class="mb-3">
+            <label for="tipo_documento" class="form-label">{{ form.tipo_documento.label }}</label>
+            {{ form.tipo_documento(class="form-select", id="tipo_documento") }}
+            {% for error in form.tipo_documento.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Número de Documento -->
+        <div class="mb-3">
+            <label for="numero_documento" class="form-label">{{ form.numero_documento.label }}</label>
+            {{ form.numero_documento(class="form-control", id="numero_documento", size=32) }}
+            {% for error in form.numero_documento.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Fecha de Nacimiento -->
+        <div class="mb-3">
+            <label for="fecha_nacimiento" class="form-label">{{ form.fecha_nacimiento.label }}</label>
+            {{ form.fecha_nacimiento(class="form-control", id="fecha_nacimiento") }}
+            {% for error in form.fecha_nacimiento.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">{{ form.email.label }}</label>
+            {{ form.email(class="form-control", id="email", size=32) }}
+            {% for error in form.email.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Número Celular -->
+        <div class="mb-3">
+            <label for="numero_celular" class="form-label">{{ form.numero_celular.label }}</label>
+            {{ form.numero_celular(class="form-control", id="numero_celular", size=15) }}
+            {% for error in form.numero_celular.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Número Fijo -->
+        <div class="mb-3">
+            <label for="numero_fijo" class="form-label">{{ form.numero_fijo.label }}</label>
+            {{ form.numero_fijo(class="form-control", id="numero_fijo", size=15) }}
+            {% for error in form.numero_fijo.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Tipo de Contacto -->
+        <div class="mb-3">
+            <label for="tipo_contacto" class="form-label">{{ form.tipo_contacto.label }}</label>
+            {{ form.tipo_contacto(class="form-select", id="tipo_contacto") }}
+            {% for error in form.tipo_contacto.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Cuenta Contable -->
+        <div class="mb-3">
+            <label for="id_cuenta" class="form-label">{{ form.id_cuenta.label }}</label>
+            {{ form.id_cuenta(class="form-select", id="id_cuenta") }}
+            {% for error in form.id_cuenta.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Valor Descuento -->
+        <div class="mb-3">
+            <label for="valor_descuento" class="form-label">{{ form.valor_descuento.label }}</label>
+            {{ form.valor_descuento(class="form-control", id="valor_descuento") }}
+            {% for error in form.valor_descuento.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" class="btn btn-primary">{{ form.submit.label }} </button>
+    </form>
+</div>
+{% endblock %}

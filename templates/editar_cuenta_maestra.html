@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Cuenta Maestra</h2>
+    <form method="POST" class="needs-validation" novalidate>
+        {{ form.hidden_tag() }}
+
+        <!-- Campo: Código -->
+        <div class="mb-3">
+            <label for="code" class="form-label">{{ form.code.label }}</label>
+            {{ form.code(class="form-control", id="code", size=32) }}
+            {% for error in form.code.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Número de Cuenta -->
+        <div class="mb-3">
+            <label for="numero_cuenta" class="form-label">{{ form.numero_cuenta.label }}</label>
+            {{ form.numero_cuenta(class="form-control", id="numero_cuenta", size=32) }}
+            {% for error in form.numero_cuenta.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Nombre de la Cuenta -->
+        <div class="mb-3">
+            <label for="nombre_cuenta" class="form-label">{{ form.nombre_cuenta.label }}</label>
+            {{ form.nombre_cuenta(class="form-control", id="nombre_cuenta", size=32) }}
+            {% for error in form.nombre_cuenta.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Campo: Tipo de Cuenta -->
+        <div class="mb-3">
+            <label for="tipo_cuenta" class="form-label">{{ form.tipo_cuenta.label }}</label>
+            {{ form.tipo_cuenta(class="form-select", id="tipo_cuenta") }}
+            {% for error in form.tipo_cuenta.errors %}
+            <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" class="btn btn-primary">{{ form.submit.label }}</button>
+    </form>
+</div>
+{% endblock %}

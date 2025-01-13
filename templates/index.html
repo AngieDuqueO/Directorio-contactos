@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Contactos</h2>
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Tipo Doc.</th>
+                <th># Identificación</th>
+                <th>Correo</th>
+                <th>Número Celular</th>
+                <th>Tipo Contacto</th>
+                <th>Cuenta Contable</th>
+                <th>Valor Descuento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.nombres }}</td>
+                <td>{{ contact.apellidos }}</td>
+                <td>{{ contact.tipo_documento }}</td>
+                <td>{{ contact.numero_documento }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.numero_celular }}</td>
+                <td>{{ contact.tipo_contacto }}</td>
+                <td>{{ contact.cuenta.nombre_cuenta }}</td>
+                <td>{{ contact.valor_descuento }}</td>
+                <td>
+                    <a href="/contacto/editar/{{ contact.id }}" class="btn btn-sm btn-primary">Editar</a>
+                    <form method="POST" action="/contacto/eliminar/{{ contact.id }}" style="display:inline;">
+                        {{ form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
